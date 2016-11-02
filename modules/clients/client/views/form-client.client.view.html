@@ -1,0 +1,120 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.client._id ? 'Edit Client' : 'New Client'}}</h1>
+  </div>
+  
+  <form name="vm.form.clientForm" ng-submit="vm.save(vm.form.clientForm.$valid)" novalidate>
+    <div layout-gt-xs="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>First name</label>
+        <input required name="first_name" ng-model="vm.client.first_name" id="first_name">
+        <div ng-messages="vm.form.clientForm.first_name.$error" ng-if="vm.show_error_message">
+          <div ng-message="required">
+            Clients first name is required.
+          </div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Last name</label>
+        <input required name="last_name" ng-model="vm.client.last_name" id="last_name">
+        <div ng-messages="vm.form.clientForm.last_name.$error" ng-if="vm.show_error_message">
+          <div ng-message="required">
+            Clients last name is required.
+          </div>
+        </div>
+      </md-input-container>
+    </div>
+    <div layout-gt-xs="row">
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>email</label>
+        <input name="email" ng-model="vm.client.email" id="email">
+        <div ng-messages="vm.form.clientForm.email.$error" ng-if="vm.show_error_message">
+        </div>
+      </md-input-container>
+    </div>
+    <div layout-gt-xs="row">
+      <!-- <md-input-container class="md-block"> -->
+        <!-- <label>Birthdate</label> -->
+        <!-- <input required mdc-datetime-picker="" date="true" time="false" type="text" id="birthdate" ng-model="vm.client.birthdate" class="md-input"> -->
+        <div flex-gt-xs>
+          <md-datepicker ng-model="vm.client.birthdate" md-open-on-focus></md-datepicker>
+        </div>
+        
+        <!-- <input required name="birthdate" ng-model="vm.client.birthdate" id="birthdate"> -->
+        <!-- <div ng-messages="vm.form.clientForm.birthdate.$error" ng-if="vm.show_error_message"> -->
+        <!-- </div> -->
+      <!-- </md-input-container> -->
+    </div>
+    <paper-date-picker></paper-date-picker>
+    <div layout-gt-xs="row">
+      <div>
+        <md-button type="submit">{{vm.client._id ? 'Edit Client' : 'New Client'}}</md-button>  
+      </div>
+    </div>
+  </form>
+
+
+<!-- 
+  <div class="col-md-12">
+    <form name="vm.form.clientForm" class="form-horizontal" ng-submit="vm.save(vm.form.clientForm.$valid)" novalidate>
+      <fieldset>
+        <div layout-gt-xs="row">
+          <div class="form-group" show-errors>
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>First name</label>
+              <input name="first_name" type="text" ng-model="vm.client.first_name" id="first_name" class="form-control" required="">
+            </md-input-container>
+            <label class="control-label" for="first_name">First name</label>
+            <input name="first_name" type="text" ng-model="vm.client.first_name" id="first_name" class="form-control" placeholder="First name" required>
+            <div ng-messages="vm.form.clientForm.first_name.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Clients first name is required.</p>
+            </div>
+          </div>
+          <div ng-messages="vm.form.clientForm.first_name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Clients first name is required.</p>
+          </div>
+        </div>
+
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="first_name">First name</label>
+          <input name="first_name" type="text" ng-model="vm.client.first_name" id="first_name" class="form-control" placeholder="First name" required>
+          <div ng-messages="vm.form.clientForm.first_name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Clients first name is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="last_name">Last name</label>
+          <input name="last_name" type="text" ng-model="vm.client.last_name" id="last_name" class="form-control" placeholder="Last name" required>
+          <div ng-messages="vm.form.clientForm.last_name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Clients last name is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="email">Email</label>
+          <input name="email" type="text" ng-model="vm.client.email" id="email" class="form-control" placeholder="Email">
+          <div ng-messages="vm.form.clientForm.email.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Clients email is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="birthday">Birthday</label>
+          <input name="birthday" type="date" ng-model="vm.client.birthday" id="birthday" class="form-control">
+          <div ng-messages="vm.form.clientForm.birthday.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Clients birthday is required.</p>
+          </div>
+        </div>
+        <md-input-container>
+          <input mdc-datetime-picker="" date="true" time="false" type="text" id="datetime" placeholder="Date" min-date="date" ng-model="dateTime" class="md-input">
+        </md-input-container>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.client._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div> -->
+</section>
